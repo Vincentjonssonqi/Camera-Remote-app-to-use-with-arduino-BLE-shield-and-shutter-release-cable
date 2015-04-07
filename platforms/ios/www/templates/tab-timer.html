@@ -1,0 +1,15 @@
+<ion-view view-title="TIMER">
+    <ion-nav-buttons side="primary">
+             <button class="nav-bar-button button connection-status" ng-click="doSomething()">
+                <ion-spinner ng-show="$parent.focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
+            </button>
+    </ion-nav-buttons>
+        <ion-nav-buttons side="secondary">
+      <button class="nav-bar-button button connection-status" ng-click="doSomething()">
+          {{$parent.connectionIndexes.length}} <i class="ion-link"></i>
+      </button>
+    </ion-nav-buttons>
+  <ion-content>
+    
+  </ion-content>
+</ion-view>

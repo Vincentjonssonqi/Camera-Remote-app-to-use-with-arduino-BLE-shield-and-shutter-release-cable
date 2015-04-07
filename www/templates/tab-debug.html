@@ -1,0 +1,18 @@
+<ion-view view-title="CONSOLE">
+    <ion-nav-buttons side="primary">
+             <button class="nav-bar-button button connection-status" ng-click="doSomething()">
+                <ion-spinner ng-show="$parent.focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
+            </button>
+    </ion-nav-buttons>
+        <ion-nav-buttons side="secondary">
+      <button class="nav-bar-button button connection-status" ng-click="doSomething()">
+          {{$parent.connectionIndexes.length}} <i class="ion-link"></i>
+      </button>
+    </ion-nav-buttons>
+  <ion-content class="padding debug-content">
+      
+     <p ng-repeat="value in $parent.debugConsole track by $index">
+         {{value}}
+    </p>
+  </ion-content>
+</ion-view>

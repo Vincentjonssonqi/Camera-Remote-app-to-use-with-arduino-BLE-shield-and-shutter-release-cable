@@ -1,0 +1,27 @@
+<!--
+Create tabs with an icon and label, using the tabs-positive style.
+Each tab's child <ion-nav-view> directive will have its own
+navigation history that also transitions its views in and out.
+-->
+<ion-tabs class="tabs-icon-only">
+            <ion-tab title="Timelapse" icon-on="ion-ios-stopwatch" icon-off="ion-ios-stopwatch-outline" href="#/tab/timelapse">
+                <!-- Tab 2 content -->
+                <ion-nav-view name="tab-timelapse"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Trigger" icon-on="ion-ios-camera" icon-off="ion-ios-camera-outline" href="#/tab/trigger">
+                <!-- Tab 2 content -->
+                <ion-nav-view name="tab-trigger"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Timer" icon-on="ion-ios-timer" icon-off="ion-ios-timer-outline" href="#/tab/timer">
+                <!-- Tab 3 content -->
+                <ion-nav-view name="tab-timer"></ion-nav-view>
+            </ion-tab>
+            <ion-tab title="Connect" icon-on="ion-android-wifi" icon-off="ion-android-wifi" href="#/tab/connect">
+                <!-- Tab 3 content -->
+                <ion-nav-view name="tab-connect"></ion-nav-view>
+            </ion-tab>
+    <ion-tab title="Debug" icon-on="ion-code-working" icon-off="ion-code" href="#/tab/debug">
+                <!-- Tab 3 content -->
+                <ion-nav-view name="tab-debug"></ion-nav-view>
+            </ion-tab>
+</ion-tabs>

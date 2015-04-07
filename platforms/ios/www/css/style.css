@@ -1,0 +1,140 @@
+/* Empty. Add your own CSS if you like */
+ion-content{
+    background: rgb(248, 250, 253) !important;
+}
+.ani-short {
+    -webkit-transition: all 200ms cubic-bezier(.1, 1.32, .71, 1.03);
+    -moz-transition: all 200ms cubic-bezier(.1, 1.32, .71, 1.03);
+    -ms-transition: all 200ms cubic-bezier(.1, 1.32, .71, 1.03);
+    -o-transition: all 200ms cubic-bezier(.1, 1.32, .71, 1.03);
+    transition: all 200ms cubic-bezier(.1, 1.32, .71, 1.03);
+}
+
+
+.scroll{
+    height:100% !important;
+}
+.nav-bar-button{
+    background:none !important;
+    border:none !Important;
+    
+}
+.connection-status{
+    font-size: 8px !important;
+    font-weight: 500 !important;
+}
+.connection-status i{
+    font-size: 15px !Important;
+}
+.title{
+    font-weight: 200 !important;
+    color:#6f6f6f;
+    font-size: 15px !important;
+}
+.tab-nav{
+    background: #FF0058 !important;
+     color:white !important;
+
+}
+.bar-lightBlue{
+    background: rgb(248, 250, 253) !important;
+}
+.focus-device-Info {
+    position: absolute;
+    bottom:0px;
+    text-align: center !important;
+    font-size: 12px !important;
+    width:100%;
+    color:#b4b4b4;
+    line-height: 14px;
+}
+}
+.device-list .item{
+    border:none;
+    border-top:solid 4px rgb(56, 126, 245);
+    box-shadow:0px 0px 3px 0px rgb(190, 190, 190);
+    border-radius:1px;
+}
+.device-list .item h2{
+    color:rgb(56, 126, 245);
+    margin-bottom:7px;
+}
+.deviceInfo p{
+    font-size: 10px !important;
+    line-height: 14px;
+    color:#bababa;
+}
+
+.device-loading svg {
+  width: 20px;
+  height: 15px;
+    
+}
+.jobInProg-spinner {
+    position: absolute;
+  top: 6px;
+    left:0;
+}
+.jobInProg-spinner svg{
+    height:14px;
+    
+
+}
+.statusIcon{
+    position: absolute;
+    right: 16px;
+}
+
+.btnTrigger{
+    position: absolute;
+    left: 50%;
+    margin-left: -30px;
+    bottom:20%;
+    width:70px;
+    height:70px;
+    border-radius:50px;
+    background: #ff0058;
+}
+.btnTrigger ion-spinner svg{
+    stroke: #FF0058;
+    fill: #FF0058;
+    width: 120px;
+    height: 120px;
+    position: absolute;
+    left: -25px;
+    top: -25px;
+}
+.functionality-info{
+    position: absolute;
+    top:40px;
+      padding: 30px;
+  color: grey;
+    line-height: 1.5;
+    font-size: 20px;
+  text-align: center;
+  font-weight: 200;
+}
+.functionality-info.minimize{
+     transform: scale(0.8) translateY(30px) !Important;
+    -webkit-transform: scale(0.8) translateY(30px) !important;
+}
+.stopwatch-big{
+    text-align: center;
+    font-weight: 300;
+    font-size: 40px;
+    color: #FF0058;
+       transform: scale(0.7) translateY(-30px);
+    -webkit-transform: scale(0.7) translateY(-30px);
+    opacity: 0;
+}
+.stopwatch-big.active{
+    transform: scale(1) translateY(57px) !important;
+    -webkit-transform: scale(1) translateY(57px) !important;
+     opacity: 1 !important;
+}
+
+.debug-content{
+    background: black !Important;
+  color: rgb(255, 0, 88);
+  line-height: 0.4;
+}

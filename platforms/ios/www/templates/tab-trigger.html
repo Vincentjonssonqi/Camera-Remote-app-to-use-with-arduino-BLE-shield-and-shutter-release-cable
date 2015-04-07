@@ -1,0 +1,22 @@
+<ion-view view-title="TRIGGER">
+    <ion-nav-buttons side="primary">
+             <button class="nav-bar-button button connection-status" ng-click="doSomething()">
+                <ion-spinner ng-show="$parent.focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
+            </button>
+    </ion-nav-buttons>
+        <ion-nav-buttons side="secondary">
+      <button class="nav-bar-button button connection-status" ng-click="doSomething()">
+          {{$parent.connectionIndexes.length}} <i class="ion-link"></i>
+      </button>
+    </ion-nav-buttons>
+  <ion-content scroll=false>
+      <h2 class="stopwatch-big ani-short" ng-class="{'active':$parent.focusDevice.exposureCurrentIntervalDuration > 0}">{{ focusDevice.exposureCurrentIntervalDuration | date : "HH:mm:ss:sss" : "UTC"}}</h2>
+      <p class="functionality-info ani-short" ng-class="{'minimize':$parent.focusDevice.exposureCurrentIntervalDuration > 0}">Tap on the big red button to take a picture, Double tap or hold down to leave the shutter open.</p>
+          
+      <p class="focus-device-Info padding"><b>NAME: </b>{{$parent.focusDevice.name}} <span><b>RSSI: </b> {{$parent.focusDevice.rssi}}</span></p>
+        
+        <div class="btnTrigger" ng-click="$parent.focusDevice.takePicture()" on-double-tap="$parent.focusDevice.takeLongExposurePicture()" on-hold="$parent.focusDevice.takeLongExposurePicture()" on-release="$parent.focusDevice.endLongExposurePicture()"><ion-spinner icon="ripple" ng-show="$parent.focusDevice.exposureCurrentIntervalDuration > 0"></ion-spinner></div>
+        
+      
+  </ion-content>
+</ion-view>
