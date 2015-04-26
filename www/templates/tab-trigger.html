@@ -1,22 +1,40 @@
 <ion-view view-title="TRIGGER">
     <ion-nav-buttons side="primary">
-             <button class="nav-bar-button button connection-status" ng-click="doSomething()">
-                <ion-spinner ng-show="$parent.focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
+             <button class="nav-bar-button button connection-status" >
+                <ion-spinner ng-show="focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
             </button>
     </ion-nav-buttons>
         <ion-nav-buttons side="secondary">
-      <button class="nav-bar-button button connection-status" ng-click="doSomething()">
-          {{$parent.connectionIndexes.length}} <i class="ion-link"></i>
+      <button class="nav-bar-button button connection-status" >
+          {{connectionIndexes.length}} <i class="ion-link"></i>
       </button>
     </ion-nav-buttons>
   <ion-content scroll=false>
-      <h2 class="stopwatch-big ani-short" ng-class="{'active':$parent.focusDevice.exposureCurrentIntervalDuration > 0}">{{ focusDevice.exposureCurrentIntervalDuration | date : "HH:mm:ss:sss" : "UTC"}}</h2>
-      <p class="functionality-info ani-short" ng-class="{'minimize':$parent.focusDevice.exposureCurrentIntervalDuration > 0}">Tap on the big red button to take a picture, Double tap or hold down to leave the shutter open.</p>
+      <p class="functionality-info ani-short" ng-class="{'minimize':focusDevice.exposureCurrentIntervalDuration > 0}">Tap on the big red button to take a picture, Double tap or hold down to leave the shutter open.</p>
           
-      <p class="focus-device-Info padding"><b>NAME: </b>{{$parent.focusDevice.name}} <span><b>RSSI: </b> {{$parent.focusDevice.rssi}}</span></p>
+      <p class="focus-device-Info padding" ng-show="focusDevice"><b>NAME: </b>{{focusDevice.name}} <span><b>RSSI: </b> {{focusDevice.rssi}}</span></p>
+       <div class="shutter-area ani-short" ng-class="{'active':showExposure}">
+            
+        <div class="exposure-clock">
+            
+            <div class="row">
+            <div class="col {{stage.id}}" ng-repeat="stage in exposureClock.stages">
+                <div class="frame">
+                    <ul class="items">
+                        <li class="ani-short" ng-repeat="(key,value) in stage.elements track by $index" sly-vertical-repeat="stage.sly" sly-options="stage.options" sly-callback="stage.callbacks">
+                            {{key*stage.multiplier | rounding: stage.length}}{{stage.divider}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                
+        </div>
+            <div class="gradient-overlay pink"></div>
+            <span class="stopwatch-text">exposure duration</span>
+        </div>
         
-        <div class="btnTrigger" ng-click="$parent.focusDevice.takePicture()" on-double-tap="$parent.focusDevice.takeLongExposurePicture()" on-hold="$parent.focusDevice.takeLongExposurePicture()" on-release="$parent.focusDevice.endLongExposurePicture()"><ion-spinner icon="ripple" ng-show="$parent.focusDevice.exposureCurrentIntervalDuration > 0"></ion-spinner></div>
-        
-      
+          <div class="btnTrigger" ng-click="focusDevice.takePicture()" on-double-tap="focusDevice.takeLongExposurePicture()" on-hold="focusDevice.takeLongExposurePicture()" on-release="focusDevice.endLongExposurePicture()"><ion-spinner icon="ripple" ng-show="focusDevice.busy"></ion-spinner></div>
+            <!--<p class="clip-duration">Final clip duration: {{focusDevice.timeLapseNrOfExposures/fps}} ({{fps}}FPS) </p>--> 
+      </div>
   </ion-content>
 </ion-view>

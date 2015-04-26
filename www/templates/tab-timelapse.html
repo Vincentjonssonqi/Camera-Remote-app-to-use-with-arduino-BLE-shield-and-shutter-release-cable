@@ -1,15 +1,59 @@
 <ion-view view-title="TIME LAPSE">
     <ion-nav-buttons side="primary">
              <button class="nav-bar-button button connection-status" ng-click="doSomething()">
-                <ion-spinner ng-show="$parent.focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
+                <ion-spinner ng-show="focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
             </button>
     </ion-nav-buttons>
         <ion-nav-buttons side="secondary">
       <button class="nav-bar-button button connection-status" ng-click="doSomething()">
-          {{$parent.connectionIndexes.length}} <i class="ion-link"></i>
+          {{connectionIndexes.length}} <i class="ion-link"></i>
       </button>
     </ion-nav-buttons>
-  <ion-content class="padding">
-    
+  <ion-content scroll="false">
+      <h2 class="nr-of-exposures ani-short" ng-class="{'minimize':editExposure || showExposure}">{{focusDevice.timeLapseNrOfExposures | rounding: 2}}</h2>
+       <div class="interval-clock" ng-class="{'minimize':editExposure || showExposure}">
+            <div class="row">
+            <div class="col {{stage.id}}" ng-repeat="stage in intervalClock.stages">
+                <div class="frame">
+                    <ul class="items">
+                        <li sly-vertical-repeat="stage.sly" class="ani-short" ng-repeat="(key,value) in stage.elements track by $index" sly-options="stage.options" sly-callback="stage.callbacks">
+                            {{key*stage.multiplier | rounding: stage.length}}{{stage.divider}}
+                        </li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+           <div class="gradient-overlay white"></div>
+           <span class="stopwatch-text">beteween each exposure</span>
+      </div>
+      
+        <div class="shutter-area ani-short" ng-class="{'edit':editExposure}">
+            
+        <div class="exposure-clock">
+            
+            <div class="row">
+            <div class="col {{stage.id}}" ng-repeat="stage in exposureClock.stages">
+                <div class="frame">
+                    <ul class="items">
+                        <li sly-vertical-repeat="stage.sly" class="ani-short" ng-repeat="(key,value) in stage.elements track by $index" sly-options="stage.options" sly-callback="stage.callbacks">
+                            {{key*stage.multiplier | rounding: stage.length}}{{stage.divider}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                
+        </div>
+            <div class="gradient-overlay pink"></div>
+            <span class="stopwatch-text">exposure duration</span>
+        </div>
+        
+         <div class="btnTrigger ani-short" ng-click="focusDevice.takeTimeLapse()"><ion-spinner icon="ripple" ng-show="focusDevice.busy"></ion-spinner></div>
+            <!--<p class="clip-duration">Final clip duration: {{focusDevice.timeLapseNrOfExposures/fps}} ({{fps}}FPS) </p>-->
+            <div class="button-bar btn-exposure-bar ani-short">
+                <button class="btn-exposure-save button" ng-click="focusDevice.setExposureDuration(focusDevice.exposureCurrentIntervalDuration)"><i class="ion-ios-checkmark-outline"></i></button>
+                <button class="btn-exposure-discard button" ng-click="focusDevice.setExposureDuration(0)"><i class="ion-ios-close-outline"></i></button>
+            </div> 
+            <button class="btn-aperture" ng-click="focusDevice.editExposureDuration()"><i class="ion-aperture"></i></button>       
+      </div>
   </ion-content>
 </ion-view>

@@ -9,8 +9,6 @@ ion-content{
     -o-transition: all 200ms cubic-bezier(.1, 1.32, .71, 1.03);
     transition: all 200ms cubic-bezier(.1, 1.32, .71, 1.03);
 }
-
-
 .scroll{
     height:100% !important;
 }
@@ -32,8 +30,8 @@ ion-content{
     font-size: 15px !important;
 }
 .tab-nav{
-    background: #FF0058 !important;
-     color:white !important;
+background: rgb(255, 0, 88) !important;
+    color:white !important;
 
 }
 .bar-lightBlue{
@@ -51,7 +49,7 @@ ion-content{
 }
 .device-list .item{
     border:none;
-    border-top:solid 4px rgb(56, 126, 245);
+    border-top:solid 4px rgb(255, 0, 88);
     box-shadow:0px 0px 3px 0px rgb(190, 190, 190);
     border-radius:1px;
 }
@@ -89,17 +87,18 @@ ion-content{
     position: absolute;
     left: 50%;
     margin-left: -30px;
-    bottom:20%;
-    width:70px;
-    height:70px;
+    top:50%;
+    margin-top:-30px;
+    width:60px;
+    height:60px;
     border-radius:50px;
-    background: #ff0058;
+    background: white;
 }
 .btnTrigger ion-spinner svg{
-    stroke: #FF0058;
-    fill: #FF0058;
-    width: 120px;
-    height: 120px;
+    stroke: white;
+    fill:white;
+    width: 110px;
+    height: 110px;
     position: absolute;
     left: -25px;
     top: -25px;
@@ -118,23 +117,208 @@ ion-content{
      transform: scale(0.8) translateY(30px) !Important;
     -webkit-transform: scale(0.8) translateY(30px) !important;
 }
-.stopwatch-big{
+.interval-clock{
     text-align: center;
     font-weight: 300;
     font-size: 40px;
+    margin-top: -45px;
     color: #FF0058;
-       transform: scale(0.7) translateY(-30px);
-    -webkit-transform: scale(0.7) translateY(-30px);
-    opacity: 0;
+    position: relative;
 }
-.stopwatch-big.active{
-    transform: scale(1) translateY(57px) !important;
-    -webkit-transform: scale(1) translateY(57px) !important;
-     opacity: 1 !important;
+.interval-clock .col{
+    padding:0px !important;
+    color:#e5e5e5 !important;
 }
 
+.interval-clock .row{
+      width: 206px;
+  left: 50%;
+  margin-left: -108px;
+  position: relative;
+}
+.interval-clock .frame ul.items li.active {
+	color:#FF0058 !Important;
+    transition: all 0.8s ease;
+    -webkit-transition: all 0.8s ease;
+}
+.exposure-clock{
+    width: 100%;
+    -webkit-transform: translateY(-100px);
+    text-align: center;
+  color:white;
+}
+
+.exposure-clock .row{
+     width: 206px;
+  left: 50%;
+  margin-left: -108px;
+  position: relative;
+}
+.exposure-clock .col{
+    color: rgb(219, 0, 77) !Important;
+    padding:0px !important;
+}
+.exposure-clock .frame ul.items li.active {
+	color:white !important;
+    text-decoration: none !Important;
+        transition: all 0.1s ease;
+    -webkit-transition: all 0.1s ease;
+}
+
+.miliseconds{
+      width: 16px !Important;
+  display: table !important;
+}
+.interval-clock .stopwatch-text{
+    font-size: 18px;
+    top: -46px;
+  position: relative;
+}
+.exposure-clock .stopwatch-text{
+    font-size: 18px;
+    top: -38px;
+  position: relative;
+}
 .debug-content{
     background: black !Important;
-  color: rgb(255, 0, 88);
-  line-height: 0.4;
+  color: rgb(56, 148, 255);
+  line-height: 1;
+}
+
+.shutter-area{
+    width:100%;
+    height:30%;
+    position: absolute;
+    bottom:0px;
+    background: rgb(255, 0, 88);
+    overflow:hidden;
+}
+
+.nr-of-exposures{
+    text-align: center;
+  font-size: 195px;
+  color: rgb(249, 0, 86);
+  position: relative;
+    line-height: 227px;
+    z-index: 1000;
+}
+.btn-aperture{
+      background: none;
+  border: none;
+  color: white;
+  /* height: 40px; */
+  /* width: 40px; */
+  font-size: 30px;
+  position: absolute;
+  left: 50%;
+    margin-left: 80px;
+    top:50%;
+    margin-top: -21px;
+     transform: scale(1) !important;
+    -webkit-transform:  scale(1) !important;
+  /* margin-left: 100px; */
+}
+.clip-duration{
+      text-align: center;
+  color: rgb(194, 0, 67);
+  font-weight: 300;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+}
+.btn-exposure-bar{
+    width:140px;
+    left: 50%;
+    margin-left: -70px;
+    position: absolute;
+    top: 50%;
+    transform:  scale(0);
+    -webkit-transform:  scale(0);
+      margin-top: 25px;
+}
+.btn-exposure-bar .button{
+    border:none !important;
+    background: none !important;
+    color:white !important;
+    font-size: 50px !important;
+}
+
+
+/*Exposure mode*/
+.shutter-area.edit{
+    height:47% !Important;
+}
+.shutter-area.edit .exposure-clock{
+    transform: translateY(12px) scale(1.15) !important;
+    -webkit-transform: translateY(12px) scale(1.15) !important;
+}
+.shutter-area.edit .btnTrigger{
+     transform: translateY(25px) scale(0) !important;
+    -webkit-transform: translateY(25px) scale(0) !important;
+}
+.shutter-area.edit .btn-exposure-bar{
+     transform: scale(1) !important;
+    -webkit-transform:  scale(1) !important;
+}
+.shutter-area.edit .btn-aperture{
+     transform: scale(0) !important;
+    -webkit-transform:  scale(0) !important;
+}
+
+
+
+.shutter-area.active{
+    height:47% !Important;
+}
+.shutter-area.active .exposure-clock{
+    transform: translateY(12px) scale(1.15) !important;
+    -webkit-transform: translateY(12px) scale(1.15) !important;
+}
+.shutter-area.active .btnTrigger{
+     transform: translateY(56px) scale(0.8) !important;
+    -webkit-transform: translateY(56px) scale(0.8) !important;
+}
+
+.interval-clock.minimize{
+    transform: scale(0.8) !important;
+    -webkit-transform: scale(0.8) !important;
+}
+.nr-of-exposures.minimize{
+    font-size: 185px !important;
+    line-height: 155px !important;
+}
+
+.gradient-overlay{
+    pointer-events: none !Important;
+    height: 80%;
+    top:0px;
+    left:0px;
+    width:100%;
+    position: absolute;
+}
+.gradient-overlay.pink{
+    background: -moz-linear-gradient(top,  rgba(255,0,88,1) 0%, rgba(255,0,88,1) 8%, rgba(255,0,88,0.03) 40%, rgba(255,0,88,0) 41%, rgba(255,0,88,0) 65%, rgba(255,0,88,0.25) 72%, rgba(255,0,88,1) 93%, rgba(255,0,88,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,0,88,1)), color-stop(8%,rgba(255,0,88,1)), color-stop(40%,rgba(255,0,88,0.03)), color-stop(41%,rgba(255,0,88,0)), color-stop(65%,rgba(255,0,88,0)), color-stop(72%,rgba(255,0,88,0.25)), color-stop(93%,rgba(255,0,88,1)), color-stop(100%,rgba(255,0,88,1)));
+background: -webkit-linear-gradient(top,  rgba(255,0,88,1) 0%,rgba(255,0,88,1) 8%,rgba(255,0,88,0.03) 40%,rgba(255,0,88,0) 41%,rgba(255,0,88,0) 65%,rgba(255,0,88,0.25) 72%,rgba(255,0,88,1) 93%,rgba(255,0,88,1) 100%);
+background: -o-linear-gradient(top,  rgba(255,0,88,1) 0%,rgba(255,0,88,1) 8%,rgba(255,0,88,0.03) 40%,rgba(255,0,88,0) 41%,rgba(255,0,88,0) 65%,rgba(255,0,88,0.25) 72%,rgba(255,0,88,1) 93%,rgba(255,0,88,1) 100%);
+background: -ms-linear-gradient(top,  rgba(255,0,88,1) 0%,rgba(255,0,88,1) 8%,rgba(255,0,88,0.03) 40%,rgba(255,0,88,0) 41%,rgba(255,0,88,0) 65%,rgba(255,0,88,0.25) 72%,rgba(255,0,88,1) 93%,rgba(255,0,88,1) 100%);
+background: linear-gradient(to bottom,  rgba(255,0,88,1) 0%,rgba(255,0,88,1) 8%,rgba(255,0,88,0.03) 40%,rgba(255,0,88,0) 41%,rgba(255,0,88,0) 65%,rgba(255,0,88,0.25) 72%,rgba(255,0,88,1) 93%,rgba(255,0,88,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0058', endColorstr='#ff0058',GradientType=0 );
+
+
+
+
+}
+.gradient-overlay.white{
+  background: -moz-linear-gradient(top,  rgba(248,250,253,1) 0%, rgba(248,250,253,1) 8%, rgba(248,250,253,0.24) 40%, rgba(248,250,253,0) 50%, rgba(248,250,253,0) 53%, rgba(248,250,253,0.28) 64%, rgba(248,250,253,1) 93%, rgba(248,250,253,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,250,253,1)), color-stop(8%,rgba(248,250,253,1)), color-stop(40%,rgba(248,250,253,0.24)), color-stop(50%,rgba(248,250,253,0)), color-stop(53%,rgba(248,250,253,0)), color-stop(64%,rgba(248,250,253,0.28)), color-stop(93%,rgba(248,250,253,1)), color-stop(100%,rgba(248,250,253,1)));
+background: -webkit-linear-gradient(top,  rgba(248,250,253,1) 0%,rgba(248,250,253,1) 8%,rgba(248,250,253,0.24) 40%,rgba(248,250,253,0) 50%,rgba(248,250,253,0) 53%,rgba(248,250,253,0.28) 64%,rgba(248,250,253,1) 93%,rgba(248,250,253,1) 100%);
+background: -o-linear-gradient(top,  rgba(248,250,253,1) 0%,rgba(248,250,253,1) 8%,rgba(248,250,253,0.24) 40%,rgba(248,250,253,0) 50%,rgba(248,250,253,0) 53%,rgba(248,250,253,0.28) 64%,rgba(248,250,253,1) 93%,rgba(248,250,253,1) 100%);
+background: -ms-linear-gradient(top,  rgba(248,250,253,1) 0%,rgba(248,250,253,1) 8%,rgba(248,250,253,0.24) 40%,rgba(248,250,253,0) 50%,rgba(248,250,253,0) 53%,rgba(248,250,253,0.28) 64%,rgba(248,250,253,1) 93%,rgba(248,250,253,1) 100%);
+background: linear-gradient(to bottom,  rgba(248,250,253,1) 0%,rgba(248,250,253,1) 8%,rgba(248,250,253,0.24) 40%,rgba(248,250,253,0) 50%,rgba(248,250,253,0) 53%,rgba(248,250,253,0.28) 64%,rgba(248,250,253,1) 93%,rgba(248,250,253,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8fafd', endColorstr='#f8fafd',GradientType=0 );
+
+
+
+
 }

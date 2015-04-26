@@ -7,12 +7,12 @@
 <ion-view view-title="DEVICES">
         <ion-nav-buttons side="primary">
              <button class="nav-bar-button button connection-status" ng-click="doSomething()">
-                <ion-spinner ng-show="$parent.focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
+                <ion-spinner ng-show="focusDevice.busy" class="jobInProg-spinner" icon="lines"></ion-spinner>
             </button>
     </ion-nav-buttons>
         <ion-nav-buttons side="secondary">
       <button class="nav-bar-button button connection-status" ng-click="doSomething()">
-          {{$parent.connectionIndexes.length}} <i class="ion-link"></i>
+          {{connectionIndexes.length}} <i class="ion-link"></i>
       </button>
     </ion-nav-buttons>
   <ion-content class="padding">
@@ -22,7 +22,7 @@
             on-refresh="refresh()">
         </ion-refresher>
         <div class="list device-list">
-            <div ng-class="{'connected':device.connected}" ng-repeat="(key, device) in $parent.devices" class="item" ng-click="showDeviceOptions(key)">
+            <div ng-class="{'connected':device.connected}" ng-repeat="(key, device) in devices" class="item" ng-click="showDeviceOptions(device.id)">
                  <!--<p class="deviceStatus"><span ng-show="!device.connected">NOT </span> PAIRED
                      
                 </p>-->
