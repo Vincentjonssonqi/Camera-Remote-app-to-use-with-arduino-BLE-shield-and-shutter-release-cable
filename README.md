@@ -1,4 +1,4 @@
-# CameraRemote-for-multple-Cameras-using-BLEShields
+# Camera remote app using and arduino, BLE-shield and a shutter release cable
 <p>This is an app for phonegap build but it also works with cordova and ionic. To control your camera you will need an arduino and a BLE-shield. It should in theory also work with any bluetooth low energy shield or arduino board. Just make sure to change the board specific charachteristics and serviceUUID</p>
 <code>
     // This is the object that needs to be changed if you are using another card.
